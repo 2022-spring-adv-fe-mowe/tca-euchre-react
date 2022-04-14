@@ -2,9 +2,9 @@ import logo from './logo.svg';
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import { Home } from './Home';
+import { GameSetup } from './GameSetup';
+import { PlayGame } from './PlayGame';
 
-const GameSetup = () => <h2>Game Setup</h2>
-const PlayGame = () => <h2>Play Game</h2>
 
 function App() {
   return (
