@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import { Home } from './Home';
 import { GameSetup } from './GameSetup';
 import { PlayGame } from './PlayGame';
+import { useState } from 'react';
 
 
 const game1 = {
@@ -28,16 +29,34 @@ const gameResults = [
 
 
 const App = () => {
+
+  const [results, setResults] = useState(gameResults);
+
+  const addGameResult = (gameResult) => {
+    setResults(
+      [
+        ...results
+        , gameResult
+      ]
+    );
+  
+    console.log(gameResults);
+  };
+
   return (
     <div className="App">
       <Routes>
         <Route path="/" element={
-        <Home 
-          gameResults={gameResults}
-        />
+          <Home 
+            gameResults={results}
+          />
         } />
         <Route path="setup" element={<GameSetup />} />
-        <Route path="play" element={<PlayGame />} />
+        <Route path="play" element={
+          <PlayGame 
+            addGameResult={addGameResult}
+          />
+        } />
       </Routes>
     </div>
   );
