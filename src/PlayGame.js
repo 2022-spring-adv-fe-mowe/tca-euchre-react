@@ -19,6 +19,7 @@ export const PlayGame = ({
             , end: (new Date()).toISOString()
             , winner: "Bradley"
         });
+
         nav("/");
     };
 
@@ -27,11 +28,18 @@ export const PlayGame = ({
             <h2>
                 Play Euchre
             </h2>
+            { currentGame.players.map(x => (
+                <Button
+                    variant='outlined'
+                >
+                    {`${x} Wins`}
+                </Button>
+            )) }
             <Button
                 variant="outlined"
                 onClick={endGame}
             >
-                Done
+                Quit Game
             </Button>
         </>
     );
